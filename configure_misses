@@ -1,1 +1,2 @@
+Configure miss: if gcov code coverage is enabled
 Configure miss: whether gcc accepts -Wformat-security
