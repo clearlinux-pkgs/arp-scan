@@ -1,0 +1,1 @@
+chmod a-s %{buildroot}/usr/bin/*

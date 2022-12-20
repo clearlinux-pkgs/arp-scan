@@ -4,7 +4,7 @@
 #
 Name     : arp-scan
 Version  : 1.10.0
-Release  : 3
+Release  : 4
 URL      : https://github.com/royhills/arp-scan/releases/download/1.10.0/arp-scan-1.10.0.tar.gz
 Source0  : https://github.com/royhills/arp-scan/releases/download/1.10.0/arp-scan-1.10.0.tar.gz
 Summary  : No detailed summary available
@@ -67,7 +67,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1671496402
+export SOURCE_DATE_EPOCH=1671571862
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -87,11 +87,14 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1671496402
+export SOURCE_DATE_EPOCH=1671571862
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/arp-scan
 cp %{_builddir}/arp-scan-%{version}/COPYING %{buildroot}/usr/share/package-licenses/arp-scan/31a3d460bb3c7d98845187c716a30db81c44b615 || :
 %make_install
+## install_append content
+chmod a-s %{buildroot}/usr/bin/*
+## install_append end
 
 %files
 %defattr(-,root,root,-)
